@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 5: Distribución de Medicamentos Termolábiles</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        skybrand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [contenteditable="true"]:focus {
+            outline: 2px solid #0d9488;
+            background-color: #ffffff;
+            border-radius: 4px;
+            padding: 2px 4px;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.-top-3{top:-0.75rem}.right-0{right:0px}.right-4{right:1rem}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-10{height:2.5rem}.h-16{height:4rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-64{height:16rem}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(241 245 249 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.scroll-smooth{scroll-behavior:smooth}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-bl-full{border-bottom-left-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-brand-100{--tw-border-opacity:1;border-color:rgb(204 251 241 / var(--tw-border-opacity, 1))}.border-brand-200{--tw-border-opacity:1;border-color:rgb(153 246 228 / var(--tw-border-opacity, 1))}.border-brand-500{--tw-border-opacity:1;border-color:rgb(20 184 166 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/60{border-color:rgb(226 232 240 / 0.6)}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-l-brand-500{--tw-border-opacity:1;border-left-color:rgb(20 184 166 / var(--tw-border-opacity, 1))}.bg-brand-100{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.bg-brand-50\/20{background-color:rgb(240 253 250 / 0.2)}.bg-brand-50\/50{background-color:rgb(240 253 250 / 0.5)}.bg-brand-50\/60{background-color:rgb(240 253 250 / 0.6)}.bg-brand-600{--tw-bg-opacity:1;background-color:rgb(13 148 136 / var(--tw-bg-opacity, 1))}.bg-skybrand-100{--tw-bg-opacity:1;background-color:rgb(224 242 254 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-brand-100\/50{--tw-gradient-from:rgb(204 251 241 / 0.5) var(--tw-gradient-from-position);--tw-gradient-to:rgb(204 251 241 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-brand-600{--tw-gradient-from:#0d9488 var(--tw-gradient-from-position);--tw-gradient-to:rgb(13 148 136 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-skybrand-500{--tw-gradient-to:#0ea5e9 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pt-2{padding-top:0.5rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:Inter, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-brand-600{--tw-text-opacity:1;color:rgb(13 148 136 / var(--tw-text-opacity, 1))}.text-brand-700{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-skybrand-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-brand-100 *::selection{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.selection\:text-brand-900 *::selection{--tw-text-opacity:1;color:rgb(19 78 74 / var(--tw-text-opacity, 1))}.selection\:bg-brand-100::selection{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.selection\:text-brand-900::selection{--tw-text-opacity:1;color:rgb(19 78 74 / var(--tw-text-opacity, 1))}.hover\:border-brand-200:hover{--tw-border-opacity:1;border-color:rgb(153 246 228 / var(--tw-border-opacity, 1))}.hover\:border-brand-300:hover{--tw-border-opacity:1;border-color:rgb(94 234 212 / var(--tw-border-opacity, 1))}.hover\:bg-brand-50:hover{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.hover\:text-brand-700:hover{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.hover\:shadow-sm:hover{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.group:hover .group-hover\:translate-x-0\.5{--tw-translate-x:0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.-top-3{top:-0.75rem}.right-0{right:0px}.right-4{right:1rem}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-10{height:2.5rem}.h-16{height:4rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-64{height:16rem}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(241 245 249 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.scroll-smooth{scroll-behavior:smooth}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-bl-full{border-bottom-left-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-brand-100{--tw-border-opacity:1;border-color:rgb(204 251 241 / var(--tw-border-opacity, 1))}.border-brand-200{--tw-border-opacity:1;border-color:rgb(153 246 228 / var(--tw-border-opacity, 1))}.border-brand-500{--tw-border-opacity:1;border-color:rgb(20 184 166 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/60{border-color:rgb(226 232 240 / 0.6)}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-brand-600{--tw-border-opacity:1;border-color:rgb(13 148 136 / var(--tw-border-opacity, 1))}.border-l-brand-500{--tw-border-opacity:1;border-left-color:rgb(20 184 166 / var(--tw-border-opacity, 1))}.bg-brand-100{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.bg-brand-50{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.bg-brand-50\/20{background-color:rgb(240 253 250 / 0.2)}.bg-brand-50\/50{background-color:rgb(240 253 250 / 0.5)}.bg-brand-50\/60{background-color:rgb(240 253 250 / 0.6)}.bg-brand-600{--tw-bg-opacity:1;background-color:rgb(13 148 136 / var(--tw-bg-opacity, 1))}.bg-skybrand-100{--tw-bg-opacity:1;background-color:rgb(224 242 254 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-brand-100\/50{--tw-gradient-from:rgb(204 251 241 / 0.5) var(--tw-gradient-from-position);--tw-gradient-to:rgb(204 251 241 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-brand-600{--tw-gradient-from:#0d9488 var(--tw-gradient-from-position);--tw-gradient-to:rgb(13 148 136 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-skybrand-500{--tw-gradient-to:#0ea5e9 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pt-2{padding-top:0.5rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:Inter, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-brand-600{--tw-text-opacity:1;color:rgb(13 148 136 / var(--tw-text-opacity, 1))}.text-brand-700{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-skybrand-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-brand-100 *::selection{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.selection\:text-brand-900 *::selection{--tw-text-opacity:1;color:rgb(19 78 74 / var(--tw-text-opacity, 1))}.selection\:bg-brand-100::selection{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.selection\:text-brand-900::selection{--tw-text-opacity:1;color:rgb(19 78 74 / var(--tw-text-opacity, 1))}.hover\:border-brand-200:hover{--tw-border-opacity:1;border-color:rgb(153 246 228 / var(--tw-border-opacity, 1))}.hover\:border-brand-300:hover{--tw-border-opacity:1;border-color:rgb(94 234 212 / var(--tw-border-opacity, 1))}.hover\:bg-brand-50:hover{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.hover\:text-brand-700:hover{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.hover\:shadow-sm:hover{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.group:hover .group-hover\:translate-x-0\.5{--tw-translate-x:0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900 min-h-screen flex flex-col">
+
+    <!-- Top Sticky Bar for Mode Toggle & Presentation Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-skybrand-500 flex items-center justify-center text-white shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="snowflake" aria-hidden="true" class="lucide lucide-snowflake w-6 h-6"><path d="m10 20-1.25-2.5L6 18"></path><path d="M10 4 8.75 6.5 6 6"></path><path d="m14 20 1.25-2.5L18 18"></path><path d="m14 4 1.25 2.5L18 6"></path><path d="m17 21-3-6h-4"></path><path d="m17 3-3 6 1.5 3"></path><path d="M2 12h6.5L10 9"></path><path d="m20 10-1.5 2 1.5 2"></path><path d="M22 12h-6.5L14 15"></path><path d="m4 10 1.5 2L4 14"></path><path d="m7 21 3-6-1.5-3"></path><path d="m7 3 3 6h4"></path></svg>
+                </div>
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-600 block">Universidad Politécnica de Apodaca</span>
+                    <h1 class="text-sm sm:text-base font-bold text-slate-900 leading-tight">Logística de Cadena de Frío • Caso 5</h1>
+                </div>
+            </div>
+
+            <!-- Mode Toggle Button -->
+            <button id="toggleEditBtn" onclick="toggleEditMode()" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg hover:bg-brand-50 hover:text-brand-700 text-xs sm:text-sm font-semibold transition border border-slate-200 hover:border-brand-200 bg-brand-600 text-white border-brand-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-4 h-4 text-brand-600"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
+                <span id="editBtnText">Modo Edición Activado</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- ENCABEZADO DE PRESENTACIÓN Y DATOS DEL EQUIPO -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-brand-100/50 to-transparent rounded-bl-full pointer-events-none"></div>
+            
+            <div class="relative space-y-6">
+                <!-- Título Principal del Caso -->
+                <div class="space-y-2">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-200 text-xs font-bold uppercase tracking-wider">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="box" aria-hidden="true" class="lucide lucide-box w-3.5 h-3.5"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                        <span>Presentación de Proyecto Final</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" contenteditable="true">
+                        Caso 5: Medicamentos Termolábiles a hospitales</h2>
+                    <p class="text-sm text-slate-600 max-w-3xl" contenteditable="true">
+                        Plan logístico integral, evaluación de alternativas de autotransporte refrigerado, costeo de ruta, viáticos, maniobras y análisis de riesgo norma COFEPRIS / SICT.
+                    </p>
+                </div>
+
+                <!-- Tarjetas de Información General del Equipo -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-slate-200/60 pt-6">
+                    <div class="bg-white/80 p-4 rounded-xl border border-brand-100 space-y-1">
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block">Integrantes</span>
+                        <div class="text-xs font-medium text-slate-700 leading-relaxed" contenteditable="true">
+                            Yoselin Yamileth Guerrero Rojas<br>
+                            Jennifer Guerrero Perez<br>
+                            Raul Antonio Hernandez Rojas<br>
+                            Ximena Silva Rodriguez<br>
+                            Francisco Emilio Martinez Arroyo<br>
+                            Karol Mendez Cedillo
+                        </div>
+                    </div>
+
+                    <div class="bg-white/80 p-4 rounded-xl border border-brand-100 space-y-1">
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block">Equipo</span>
+                        <div class="text-lg font-bold text-brand-700" contenteditable="true">
+                            Linces
+                        </div>
+                    </div>
+
+                    <div class="bg-white/80 p-4 rounded-xl border border-brand-100 space-y-1">
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block">Carrera &amp; Grupo</span>
+                        <div class="text-xs font-semibold text-slate-800" contenteditable="true">
+                            Lic. En Comercio Internacional Y Aduanas
+                        </div>
+                        <div class="text-xs text-brand-600 font-bold mt-1" contenteditable="true">
+                            Grado y Grupo: 7A, 1A
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DESCRIPCIÓN Y PLANTEAMIENTO OFICIAL DEL CASO -->
+        <section class="space-y-4">
+            <div class="bg-brand-50/60 border border-brand-200 p-6 rounded-2xl space-y-3 shadow-xs">
+                <div class="flex items-center space-x-2 text-brand-700 font-bold text-sm uppercase tracking-wider">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" aria-hidden="true" class="lucide lucide-file-text w-4 h-4"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                    <span>Planteamiento Oficial del Caso</span>
+                </div>
+                <div class="text-sm text-slate-700 leading-relaxed space-y-2" contenteditable="true">
+                    <p>Una distribuidora debe trasladar 600 cajas de medicamentos que requieren temperatura controlada desde un almacén autorizado en Ciudad de México a hospitales de Monterrey y Saltillo. Debe conservar reistros de temperatura y trazabilidad; una excursión térmica podría inutilizar el producto. Diseñen la ruta y secuencia de entregas; evalúen consolidación frente a viajes separados; propongan monitoreon y contingencias, equi´po, documentos, seguro y análisis de cómo las paradas influyen en tiempo, costo y riesgo.&nbsp;</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 1: PARÁMETROS PRINCIPALES DE LA FICHA DEL PRODUCTO -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="thermometer-snowflake" aria-hidden="true" class="lucide lucide-thermometer-snowflake w-5 h-5"><path d="m10 20-1.25-2.5L6 18"></path><path d="M10 4 8.75 6.5 6 6"></path><path d="M10.585 15H10"></path><path d="M2 12h6.5L10 9"></path><path d="M20 14.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"></path><path d="m4 10 1.5 2L4 14"></path><path d="m7 21 3-6-1.5-3"></path><path d="m7 3 3 6h2"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">1. Parámetros Principales de la Ficha del Producto</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Rango de Temp -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Temperatura Obligatoria</span>
+                    <div class="text-2xl font-extrabold text-brand-600" contenteditable="true">2 °C a 8 °C</div>
+                    <p class="text-xs text-slate-600" contenteditable="true">Cadena de frío estricta conforme a NOM-059-SSA1-2015.</p>
+                </div>
+
+                <!-- Volumen Total -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Volumen Total</span>
+                    <div class="text-2xl font-extrabold text-slate-800" contenteditable="true">21.6 m³</div>
+                    <p class="text-xs text-slate-600" contenteditable="true">600 cajas máster (40 × 30 × 30 cm = 0.036 m³ por caja).</p>
+                </div>
+
+                <!-- Peso Bruto -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Peso Bruto Estimado</span>
+                    <div class="text-2xl font-extrabold text-slate-800" contenteditable="true">3,000 kg</div>
+                    <p class="text-xs text-slate-600" contenteditable="true">3 toneladas (5 kg por caja con geles y embalaje).</p>
+                </div>
+
+                <!-- Valor de la Carga -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2 border-l-4 border-l-brand-500">
+                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Valor Estimado de la Carga</span>
+                    <div class="text-2xl font-extrabold text-brand-700" contenteditable="true">$1,800,000 MXN</div>
+                    <p class="text-xs text-slate-600" contenteditable="true">Promedio comercial público: $3,000 MXN por unidad/caja.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: ALTERNATIVAS DE TRANSPORTE TERRESTRE -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-skybrand-100 rounded-lg text-skybrand-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="truck" aria-hidden="true" class="lucide lucide-truck w-5 h-5"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">2. Alternativas de Transporte Terrestre</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Opción A -->
+                <div class="bg-white p-6 rounded-2xl border-2 border-brand-500 shadow-sm space-y-4 relative">
+                    <div class="absolute -top-3 right-4 bg-brand-600 text-white text-xs px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                        Recomendada
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900" contenteditable="true">A. Viaje Consolidado</h4>
+                        <p class="text-xs font-semibold text-brand-600" contenteditable="true">Modo Terrestre • Caja Refrigerada Dedicada</p>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">
+                        Un solo camión térmico de 3.5 a 5 toneladas sale de CDMX, realiza parada de descarga en Saltillo y termina la entrega en Monterrey (o viceversa con carga LIFO).
+                    </p>
+                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Unidades: 1 Camión</span>
+                        <span class="font-bold text-brand-700">Ahorro: 35% - 45%</span>
+                    </div>
+                </div>
+
+                <!-- Opción B -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900" contenteditable="true">B. Viajes Separados</h4>
+                        <p class="text-xs font-semibold text-slate-500" contenteditable="true">Modo Terrestre • 2 Unidades Independientes</p>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">
+                        Dos vehículos refrigerados independientes de menor capacidad salen simultáneamente de CDMX: uno exclusivo para Monterrey y otro exclusivo para Saltillo.
+                    </p>
+                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Unidades: 2 Camionetas</span>
+                        <span class="font-bold text-amber-600">Costo Alto</span>
+                    </div>
+                </div>
+
+                <!-- Opción C -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <div class="space-y-1">
+                        <h4 class="text-lg font-bold text-slate-900" contenteditable="true">C. Hub de Transferencia</h4>
+                        <p class="text-xs font-semibold text-slate-500" contenteditable="true">Modo Terrestre • Transbordo Climatizado</p>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">
+                        Traslado masivo en tráiler hasta un centro de distribución (CEDIS) con cámara fría en Monterrey y posterior reparto regional en unidad menor a Saltillo.
+                    </p>
+                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span>Unidades: Tráiler + Van</span>
+                        <span class="font-bold text-rose-600">Riesgo en Transbordo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CUADRO COMPARATIVO DE ALTERNATIVAS -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sliders" aria-hidden="true" class="lucide lucide-sliders w-5 h-5"><path d="M10 8h4"></path><path d="M12 21v-9"></path><path d="M12 8V3"></path><path d="M17 16h4"></path><path d="M19 12V3"></path><path d="M19 21v-5"></path><path d="M3 14h4"></path><path d="M5 10V3"></path><path d="M5 21v-7"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">3. Cuadro Comparativo de Alternativas</h3>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead class="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="p-4">Criterio de Evaluación</th>
+                                <th class="p-4 text-brand-700 bg-brand-50/50">A. Viaje Consolidado (Elegida)</th>
+                                <th class="p-4">B. Viajes Separados</th>
+                                <th class="p-4">C. Hub de Transferencia</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-900">Medio y Equipo Especifico</td>
+                                <td class="p-4 bg-brand-50/20 font-medium" contenteditable="true">Camión 3.5-5 Ton con Thermo King</td>
+                                <td class="p-4" contenteditable="true">2 Vans refrigeradas independientes</td>
+                                <td class="p-4" contenteditable="true">Tráiler térmico + Camión reparto local</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-900">Tiempo Estimado de Tránsito</td>
+                                <td class="p-4 bg-brand-50/20" contenteditable="true">12 a 14 horas (con maniobra)</td>
+                                <td class="p-4" contenteditable="true">9 a 10 horas (directo)</td>
+                                <td class="p-4" contenteditable="true">18 a 24 horas (almacenamiento)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-900">Costo Operativo Estimado</td>
+                                <td class="p-4 bg-brand-50/20 font-bold text-brand-700" contenteditable="true">Bajo - Óptimo (Ahorro 35%-45%)</td>
+                                <td class="p-4 text-rose-600 font-semibold" contenteditable="true">Alto (Duplica peajes y flete)</td>
+                                <td class="p-4" contenteditable="true">Medio-Alto (Tarifa cross-docking)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-900">Ventajas Logísticas</td>
+                                <td class="p-4 bg-brand-50/20" contenteditable="true">Un solo flete, menor costo de caseta y chofer</td>
+                                <td class="p-4" contenteditable="true">Sin aperturasintermedias de puerta</td>
+                                <td class="p-4" contenteditable="true">Flexibilidad en entregas locales</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-900">Desventajas Principales</td>
+                                <td class="p-4 bg-brand-50/20" contenteditable="true">Desvío de aprox. 85 km a Saltillo</td>
+                                <td class="p-4" contenteditable="true">Relación costo-beneficio desfavorable</td>
+                                <td class="p-4" contenteditable="true">Múltiple manipulación de cajas</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-900">Riesgo Técnico de Cadena de Frío</td>
+                                <td class="p-4 bg-brand-50/20" contenteditable="true">Mitigado con cortinas de lamas en puerta</td>
+                                <td class="p-4" contenteditable="true">Duplica probabilidad de falla mecánica</td>
+                                <td class="p-4 text-rose-600 font-semibold" contenteditable="true">Riesgo en transferencia de andén</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: JUSTIFICACIÓN Y ARGUMENTACIÓN DE LA OPCIÓN ELEGIDA -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle-2" aria-hidden="true" class="lucide lucide-check-circle-2 w-5 h-5"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">4. Justificación de la Selección Optima (Opción A)</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Tarjeta Argumentación -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-base font-bold text-slate-900 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" aria-hidden="true" class="lucide lucide-shield-check w-4 h-4 text-brand-600"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                        <span>Argumentación por Criterios</span>
+                    </h4>
+                    <div class="space-y-3 text-xs text-slate-600 leading-relaxed" contenteditable="true">
+                        <p><strong>Costo:</strong> El viaje consolidado genera un ahorro de 35% a 45% respecto a viajes separados, optimizando el uso de un solo camión de 3.5 a 5 Ton con equipo Thermo King.</p>
+                        <p><strong>Tiempo:</strong> El recorrido CDMX → Saltillo (aprox. 10 h) + entrega (45 min) + Saltillo → Monterrey (1.5 h) se cumple de manera eficiente dentro de la ventana biológica del medicamento.</p>
+                        <p><strong>Seguridad y Control:</strong> Monitoreo GPS y térmico centralizado sobre un único activo en la Autopista Federal 57D.</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Impacto de Paradas -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-base font-bold text-slate-900 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-4 h-4 text-skybrand-600"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                        <span>Análisis del Impacto de Paradas</span>
+                    </h4>
+                    <div class="space-y-3 text-xs text-slate-600 leading-relaxed" contenteditable="true">
+                        <p><strong>Impacto en Tiempo:</strong> La maniobra en Saltillo añade entre 1.5 y 2 horas al viaje total (desvío, descarga parcial y firmas de recepción).</p>
+                        <p><strong>Mitigación de Frío (LIFO):</strong> Cajas de Monterrey al fondo y cajas de Saltillo al frente. Apagado automático del ventilador del Thermo King al abrir puertas para evitar succionar aire caliente exterior.</p>
+                        <p><strong>Protección Extra:</strong> Cortinas de lamas plásticas en la puerta trasera del vehículo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: DESGLOSE COMPLETO DE COSTOS, MANIOBRAS Y VIÁTICOS -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calculator" aria-hidden="true" class="lucide lucide-calculator w-5 h-5"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" x2="16" y1="6" y2="6"></line><line x1="16" x2="16" y1="14" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">5. Desglose Financiero: Ruta, Maniobras y Viáticos</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Combustible y Parámetros -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider text-brand-700 border-b border-slate-100 pb-2">Parámetros Operativos de Ruta</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-600" contenteditable="true">
+                        <li class="flex justify-between"><span>Distancia Recorrido Ida:</span> <span class="font-bold text-slate-800">aprox. 995 - 1,015 km</span></li>
+                        <li class="flex justify-between"><span>Recorrido Redondo:</span> <span class="font-bold text-slate-800">aprox. 1,800 - 2,000 km</span></li>
+                        <li class="flex justify-between"><span>Rendimiento Con Thermo:</span> <span class="font-bold text-slate-800">3.8 a 4.2 km / litro</span></li>
+                        <li class="flex justify-between"><span>Precio Diésel Referencia:</span> <span class="font-bold text-slate-800">$24.50 MXN / litro</span></li>
+                        <li class="flex justify-between pt-2 border-t border-slate-100"><span>Costo Diésel Estimado Ida:</span> <span class="font-bold text-brand-700">$6,125.00 MXN</span></li>
+                    </ul>
+                </div>
+
+                <!-- Maniobras y Entregas Múltiples (DOF) -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider text-brand-700 border-b border-slate-100 pb-2">Maniobras y Entregas Múltiples</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-600" contenteditable="true">
+                        <li class="flex justify-between"><span>Carga Almacén Origen (CDMX):</span> <span>600 cajas × $8 = $4,800 MXN</span></li>
+                        <li class="flex justify-between"><span>Descarga Hospitales Destino:</span> <span>600 cajas × $10 = $6,000 MXN</span></li>
+                        <li class="flex justify-between"><span>Entregas Múltiples (8 Puntos):</span> <span>8 × $500 = $4,000 MXN</span></li>
+                        <li class="flex justify-between pt-2 border-t border-slate-100 font-bold text-slate-900"><span>Total Maniobras (DOF):</span> <span class="text-brand-700">$14,800.00 MXN</span></li>
+                    </ul>
+                </div>
+
+                <!-- Viáticos Chofer Secundario (LFT / LISR) -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider text-brand-700 border-b border-slate-100 pb-2">Viáticos Chofer Secundario</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-600" contenteditable="true">
+                        <li class="flex justify-between"><span>Alimentos (2 Días - LISR):</span> <span>$750 × 2 = $1,500 MXN</span></li>
+                        <li class="flex justify-between"><span>Hospedaje (1 Noche - LISR):</span> <span>$1,200 × 1 = $1,200 MXN</span></li>
+                        <li class="flex justify-between"><span>Gastos Menores / Peajes:</span> <span>$200 × 2 = $400 MXN</span></li>
+                        <li class="flex justify-between pt-2 border-t border-slate-100 font-bold text-slate-900"><span>Total Viáticos Operador:</span> <span class="text-brand-700">$3,100.00 MXN</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: EMBALAJE TÉRMICO Y ACONDICIONAMIENTO MULTICAPA -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-5 h-5"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">6. Componentes del Embalaje Térmico Multicapa</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <div class="text-brand-600 font-bold text-xs uppercase tracking-wider">Capa 1: Exterior</div>
+                    <h4 class="font-bold text-sm text-slate-900" contenteditable="true">Caja Protectora</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">Cartón corrugado pesado o plástico rígido de alta densidad para resistencia mecánica.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <div class="text-brand-600 font-bold text-xs uppercase tracking-wider">Capa 2: Aislamiento</div>
+                    <h4 class="font-bold text-sm text-slate-900" contenteditable="true">Núcleo Isotérmico</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">Poliestireno Expandido (EPS), EPP o Paneles de Aislamiento al Vacío (VIP).</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <div class="text-brand-600 font-bold text-xs uppercase tracking-wider">Capa 3: Frío Pasivo</div>
+                    <h4 class="font-bold text-sm text-slate-900" contenteditable="true">Acumuladores PCM</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">Geles refrigerantes acondicionados a 2 °C a 8 °C. <em>(Hielo seco prohibido para este rango)</em>.</p>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs space-y-2">
+                    <div class="text-brand-600 font-bold text-xs uppercase tracking-wider">Capa 4: Protección</div>
+                    <h4 class="font-bold text-sm text-slate-900" contenteditable="true">Barrera de Separación</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed" contenteditable="true">Láminas de plástico burbuja o cartón para evitar congelación por contacto directo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 7: GESTIÓN DE RIESGOS Y DOCUMENTACIÓN OBLIGATORIA -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-alert" aria-hidden="true" class="lucide lucide-shield-alert w-5 h-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">7. Gestión de Riesgos y Documentación Obligatoria</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Gestión de Riesgos -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-2">Plan de Prevención de Riesgos</h4>
+                    <div class="space-y-3 text-xs text-slate-600" contenteditable="true">
+                        <div>
+                            <span class="font-bold text-slate-800 block">1. Riesgo de Excursión Térmica:</span>
+                            Data loggers IoT con alertas satelitales en tiempo real. Convenio con operador 3PL para unidad de auxilio en Matehuala/San Luis Potosí en menos de 2 horas.
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">2. Riesgo de Asalto o Robo (Autopista 57D):</span>
+                            Rastreabilidad GPS 24/7, geocercas activas y custodia física opcional en tramo de alto riesgo.
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-800 block">3. Retrasos por Tráfico o Cierres:</span>
+                            Monitoreo continuo mediante la plataforma oficial Traza tu Ruta de la SICT.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentación Obligatoria -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs space-y-4">
+                    <h4 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-2">Documentación Legal y Sanitaria</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-600" contenteditable="true">
+                        <li class="flex items-start space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-check-2" aria-hidden="true" class="lucide lucide-file-check-2 w-4 h-4 text-brand-600 shrink-0 mt-0.5"><path d="M10.5 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="m14 20 2 2 4-4"></path></svg>
+                            <span><strong>Complemento Carta Porte (SAT / SICT):</strong> Legalidad fiscal del traslado en tramo federal.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-check-2" aria-hidden="true" class="lucide lucide-file-check-2 w-4 h-4 text-brand-600 shrink-0 mt-0.5"><path d="M10.5 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="m14 20 2 2 4-4"></path></svg>
+                            <span><strong>Licencia Sanitaria y Aviso COFEPRIS:</strong> Autorización para distribución de insumos de salud.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-check-2" aria-hidden="true" class="lucide lucide-file-check-2 w-4 h-4 text-brand-600 shrink-0 mt-0.5"><path d="M10.5 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="m14 20 2 2 4-4"></path></svg>
+                            <span><strong>Factura y Certificado de Análisis:</strong> Trazabilidad por número de lote y fecha de caducidad.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-check-2" aria-hidden="true" class="lucide lucide-file-check-2 w-4 h-4 text-brand-600 shrink-0 mt-0.5"><path d="M10.5 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="m14 20 2 2 4-4"></path></svg>
+                            <span><strong>Póliza de Seguro con Cláusula de Frío:</strong> Cobertura al 100% ($1,800,000 MXN) por avería de motor térmico.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8: FUENTES OFICIALES DE VERIFICACIÓN -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-brand-100 rounded-lg text-brand-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="link-2" aria-hidden="true" class="lucide lucide-link-2 w-5 h-5"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">8. Fuentes Oficiales de Verificación y Consulta</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Fuente SICT Traza Tu Ruta -->
+                <a href="https://app.sct.gob.mx/sibuac_internet/" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200/80 hover:border-brand-300 hover:shadow-sm transition group space-y-2" rel="noopener noreferrer">
+                    <div class="flex items-center justify-between text-brand-600">
+                        <span class="text-xs font-bold uppercase tracking-wider">SICT / Mappir</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-4 h-4 group-hover:translate-x-0.5 transition"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900">Traza tu Ruta (Casetas y Distancias)</h4>
+                    <p class="text-xs text-slate-500">Consulta de kilometraje y costos de peaje en la Carretera Federal 57D.</p>
+                </a>
+
+                <!-- Fuente CRE Diésel -->
+                <a href="https://www.gob.mx/cre" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200/80 hover:border-brand-300 hover:shadow-sm transition group space-y-2" rel="noopener noreferrer">
+                    <div class="flex items-center justify-between text-brand-600">
+                        <span class="text-xs font-bold uppercase tracking-wider">Comisión Reguladora de Energía</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-4 h-4 group-hover:translate-x-0.5 transition"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900">Precios de Combustibles (CRE)</h4>
+                    <p class="text-xs text-slate-500">Verificación de precios oficiales del litro de Diésel a nivel nacional.</p>
+                </a>
+
+                <!-- Fuente COFEPRIS / NOM-059 -->
+                <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5424575&amp;fecha=05/02/2016" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200/80 hover:border-brand-300 hover:shadow-sm transition group space-y-2" rel="noopener noreferrer">
+                    <div class="flex items-center justify-between text-brand-600">
+                        <span class="text-xs font-bold uppercase tracking-wider">DOF / COFEPRIS</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-4 h-4 group-hover:translate-x-0.5 transition"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900">NOM-059-SSA1-2015 &amp; FEUM</h4>
+                    <p class="text-xs text-slate-500">Norma oficial mexicana de buenas prácticas de distribución de medicamentos.</p>
+                </a>
+
+                <!-- Fuente SAT Carta Porte -->
+                <a href="https://www.sat.gob.mx/consultas/42372/comprobante-de-recepcion-de-pagos-y-complemento-carta-porte" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200/80 hover:border-brand-300 hover:shadow-sm transition group space-y-2" rel="noopener noreferrer">
+                    <div class="flex items-center justify-between text-brand-600">
+                        <span class="text-xs font-bold uppercase tracking-wider">SAT</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-4 h-4 group-hover:translate-x-0.5 transition"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900">Complemento Carta Porte</h4>
+                    <p class="text-xs text-slate-500">Regulación y requisitos fiscales para el autotransporte de carga federal.</p>
+                </a>
+
+                <!-- Fuente IMT / Maniobras -->
+                <a href="https://www.gob.mx/imt" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200/80 hover:border-brand-300 hover:shadow-sm transition group space-y-2" rel="noopener noreferrer">
+                    <div class="flex items-center justify-between text-brand-600">
+                        <span class="text-xs font-bold uppercase tracking-wider">Instituto Mexicano del Transporte</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-4 h-4 group-hover:translate-x-0.5 transition"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900">Costos Operativos y Maniobras (IMT)</h4>
+                    <p class="text-xs text-slate-500">Estadísticas y manuales de costos del sector autotransporte de carga.</p>
+                </a>
+
+                <!-- Fuente Ley Federal del Trabajo / LISR -->
+                <a href="https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_AFSA.pdf" target="_blank" class="bg-white p-4 rounded-xl border border-slate-200/80 hover:border-brand-300 hover:shadow-sm transition group space-y-2" rel="noopener noreferrer">
+                    <div class="flex items-center justify-between text-brand-600">
+                        <span class="text-xs font-bold uppercase tracking-wider">Cámara de Diputados / DOF</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="external-link" aria-hidden="true" class="lucide lucide-external-link w-4 h-4 group-hover:translate-x-0.5 transition"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </div>
+                    <h4 class="text-sm font-bold text-slate-900">Reglamento Autotransporte &amp; LFT</h4>
+                    <p class="text-xs text-slate-500">Marco normativo laboral (Art. 263 LFT) y límites de deducción de viáticos (LISR).</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-1">
+            <p class="font-semibold text-slate-700">Universidad Politécnica de Apodaca • Lic. En Comercio Internacional Y Aduanas</p>
+            <p>Caso 5: Distribución Nacional de Medicamentos Termolábiles • Equipo Linces</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script for Live Editable Mode -->
+    <script>
+        lucide.createIcons();
+
+        let isEditMode = false;
